@@ -1,46 +1,42 @@
 <template>
+  <!--Ctrl + Alt + L 格式化代码-->
   <div>
-    <header class="site-header jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1>请发表对React的评论</h1>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="page-header"><h2>Router Basic - 01</h2></div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <!--路由链接-->
+          <router-link class="list-group-item" to="/about">About</router-link>
+          <router-link class="list-group-item" to="/home">Home</router-link>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body">
+            <keep-alive>
+              <!--显示当前路由组件-->
+              <router-view /><!-- msg会传递给它管理的路由组件-->
+            </keep-alive>
           </div>
         </div>
       </div>
-    </header>
-    <div class="container">
-      <AddComment :addComment="addComment"/>
-      <CommentList :comments="comments" :deleteComments="deleteComments"/>
     </div>
   </div>
 </template>
 <script>
-  import AddComment from './components/AddComment.vue'
-  import CommentList from './components/CommentList.vue'
-
-    export default {
-    components:{
-      AddComment,
-      CommentList,
-
-    },
-        data() {
-            return {
-              comments:[
-                {username:'张三',comment:'React不错!'},
-                {username:'李四',comment:'React很不错!'},
-                ]
-            }
-        },
-      methods:{
-      addComment(comment){
-        this.comments.unshift(comment)
-      },
-        deleteComments(index){
-          this.comments.splice(index,1)
-        }
-      }
+  export default {
+    data() {
+      return {}
     }
+  }
 </script>
-<style></style>
+<style>
+
+</style>

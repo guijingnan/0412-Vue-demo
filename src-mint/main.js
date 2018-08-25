@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import './main.css'
+import {Button} from 'mint-ui'
 /*全局映射成标签*/
-
+Vue.component(Button.name,Button)
 new Vue({
-  router,
   el: '#app',
   components: {
     App

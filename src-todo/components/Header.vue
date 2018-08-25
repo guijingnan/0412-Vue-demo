@@ -5,14 +5,6 @@
 </template>
 <script>
   export default {
-
-    props: {
-      addTodo: {
-        type: Function,
-        required: true
-      }
-    },
-
     data() {
       return {
         title: ''
@@ -31,7 +23,7 @@
           title,
           complete: false
         }
-        this.addTodo(todo)
+        this.$emit('addTodo', todo);
         this.title = ''
       }
     }

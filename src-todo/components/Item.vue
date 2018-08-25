@@ -4,14 +4,14 @@
       <input type="checkbox" v-model="todo.complete"/>
       <span>{{todo.title}}</span>
     </label>
-    <button class="btn btn-danger" v-show="isShow" @click="deleteTodo(index)">删除</button>
+    <button class="btn btn-danger" v-show="isShow" @click="deleteTodo">删除</button>
   </li>
 </template>
 <script>
+  import PubSub from 'pubsub-js'
   export default {
     props: {
       todo: Object,
-      deleteTodo: Function,
       index: Number
     },
 
@@ -31,6 +31,9 @@
           this.bgColor = '#ffffff'
           this.isShow = false
         }
+      },
+      deleteTodo(){
+        PubSub.publish('deleteTodo',this.index)
       }
     }
   }

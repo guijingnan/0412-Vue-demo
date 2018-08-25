@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import './main.css'
-/*全局映射成标签*/
-
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 new Vue({
-  router,
   el: '#app',
   components: {
     App
